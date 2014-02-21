@@ -7,17 +7,25 @@
     <title>Ward Listing</title>
   </head>
   <body>
-    <table>
-      <thead>
-        <tr>
-          <th>Ward</th>
-        </tr>
-      </thead>
-      <tbody class="sorted">
-        <tr resource="?ward">
-          <td><a href="?ward" class="asc">{rdfs:label}</a></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th><h2>Ward</h2></th>
+                        </tr>
+                    </thead>
+                    <tbody class="sorted">
+                        <tr resource="?ward">
+                            <td>
+                                <a href="?ward" class="asc"><span class="lead">{rdfs:label}</span></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
   </body>
 </html>
