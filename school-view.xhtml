@@ -5,31 +5,37 @@
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:school="http://education.data.gov.uk/def/school/"
     xmlns:vcard="http://www.w3.org/2006/vcard/ns#">
-  <head>
+<head>
     <title resource="?this">{rdfs:label}</title>
-  </head>
-  <body resource="?this">
-    <hgroup>
-        <h1 property="school:establishmentName" />
-        <h2 property="school:establishmentNumber" />
-    </hgroup>
-    <div id="sidebar">
-        <aside rel="school:vcard" class="aside">
-            <h3>Address</h3>
-    		<p rel="vcard:adr">
-    			<span property="vcard:street-address"/><br/>
-    			<span property="vcard:locality"/><br/>
-    			<span property="vcard:postal-code"/>
-    		</p>
-    	</aside>
+</head>
+<body resource="?this">
+    <div class="container">
+        <div class="page-header">
+            <h1>{school:establishmentName} <small>{school:establishmentNumber}</small></h1>
+        </div>
+        <div class="row">
+            <div class="col-sm-8 lead">
+                <h2>Information</h2>
+                <pre class="wiki" property="rdfs:comment" />
+                <div rel="school:administrativeWard" resource="?admin"><a href="?admin">{rdfs:label}</a></div>
+            	<div>
+            		<span rel="school:establishmentStatus" resource="?status">{rdfs:label}</span>
+            		<span rel="school:phaseOfEducation">{rdfs:label}</span>
+            		<span property="school:statutoryLowAge" /> - <span property="school:statutoryHighAge" />
+            		<span rel="school:typeOfEstablishment">{rdfs:label}</span>
+            	</div>
+            </div>
+            <div class="col-sm-4">
+                <aside rel="school:vcard" class="aside lead">
+                    <h2>Address</h2>
+                	<address rel="vcard:adr">
+            			<span property="vcard:street-address"/><br/>
+            			<span property="vcard:locality"/><br/>
+            			<span property="vcard:postal-code"/>
+            		</address>
+            	</aside>
+            </div>
+        </div>
     </div>
-	<pre class="wiki" property="rdfs:comment" />
-	<div rel="school:administrativeWard" resource="?admin"><a href="?admin">{rdfs:label}</a></div>
-	<div>
-		<span rel="school:establishmentStatus" resource="?status">{rdfs:label}</span>
-		<span rel="school:phaseOfEducation">{rdfs:label}</span>
-		<span property="school:statutoryLowAge" /> - <span property="school:statutoryHighAge" />
-		<span rel="school:typeOfEstablishment">{rdfs:label}</span>
-	</div>
   </body>
 </html>
