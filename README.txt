@@ -14,3 +14,26 @@ This application shows how Callimachus interacts with more familiar HTML form fi
 *     Details      *
 ====================
 
+
+====================
+*       Data       *
+====================
+
+This webapp ships with a few UK wards and the schools locate within them. These and other ward can be queried from the http://data.gov.uk/sparql end point using a query like the one below. The included school-data.rdf has been modified to use relative URIs for schools and wards.
+
+[[
+PREFIX school: <http://education.data.gov.uk/def/school/>
+PREFIX ward:<http://statistics.data.gov.uk/id/local-authority-ward/>
+
+CONSTRUCT { 
+	?school ?rel ?resource . 
+	?resource ?property ?content 
+} WHERE {
+  ?school school:administrativeWard ward:00CNGU
+  	; ?rel ?resource
+  
+  OPTIONAL { 
+  	?resource ?property ?content 
+  }
+}
+]]
