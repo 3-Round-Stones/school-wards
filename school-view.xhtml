@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="/callimachus/template.xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:school="http://education.data.gov.uk/def/school/"
+    xmlns:vcard="http://www.w3.org/2006/vcard/ns#">
+  <head>
+    <title resource="?this">{rdfs:label}</title>
+  </head>
+  <body resource="?this">
+    <hgroup>
+        <h1 property="school:establishmentName" />
+        <h2 property="school:establishmentNumber" />
+    </hgroup>
+    <div id="sidebar">
+        <aside rel="school:vcard" class="aside">
+            <h3>Address</h3>
+    		<p rel="vcard:adr">
+    			<span property="vcard:street-address"/><br/>
+    			<span property="vcard:locality"/><br/>
+    			<span property="vcard:postal-code"/>
+    		</p>
+    	</aside>
+    </div>
+	<pre class="wiki" property="rdfs:comment" />
+	<div rel="school:administrativeWard" resource="?admin"><a href="?admin">{rdfs:label}</a></div>
+	<div>
+		<span rel="school:establishmentStatus" resource="?status">{rdfs:label}</span>
+		<span rel="school:phaseOfEducation">{rdfs:label}</span>
+		<span property="school:statutoryLowAge" /> - <span property="school:statutoryHighAge" />
+		<span rel="school:typeOfEstablishment">{rdfs:label}</span>
+	</div>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="/callimachus/template.xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:school="http://education.data.gov.uk/def/school/"
+    xmlns:education="http://statistics.data.gov.uk/def/education-geography/">
+  <head>
+    <title resource="?this">{rdfs:label}</title>
+  </head>
+  <body resource="?this">
+    <h1>{rdfs:label}</h1>
+    <table width="100%" class="table table-hover table-condensed">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Number</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody class="sorted">
+        <tr rev="school:administrativeWard" resource="?school">
+          <td><a href="?school" class="asc">{school:establishmentName}</a></td>
+          <td>{school:establishmentNumber}</td>
+          <td rel="school:establishmentStatus">{rdfs:label}</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

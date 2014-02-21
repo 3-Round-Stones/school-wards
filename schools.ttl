@@ -1,0 +1,9 @@
+@prefix rdfs:<http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl:<http://www.w3.org/2002/07/owl#>.
+@prefix msg:<http://www.openrdf.org/rdf/2011/messaging#>.
+@prefix calli:<http://callimachusproject.org/rdf/2009/framework#>.
+@prefix school:<http://education.data.gov.uk/def/school/>.
+@prefix admingeo:<http://data.ordnancesurvey.co.uk/ontology/admingeo/>.
+
+# alias
+<./> calli:describedby "ward-list.rq?view".

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="/callimachus/template.xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:school="http://education.data.gov.uk/def/school/"
+    xmlns:vcard="http://www.w3.org/2006/vcard/ns#">
+<head>
+	<title resource="?this">{rdfs:label}</title>
+</head>
+<body>
+    <h1 resource="?this">{rdfs:label}</h1>
+	<form method="POST" action="" enctype="application/sparql-update" resource="?this" typeof="school:School">
+        <fieldset>
+            <div class="control-group">
+    	        <label for="name" class="control-label">Name</label>
+        		<div class="controls">
+        			<input type="text" id="name" class="span5" value="{school:establishmentName}" />
+        		</div>
+            </div>
+        </fieldset>
+        <div class="hbox">
+            <fieldset>
+                <div class="control-group">
+            		<label for="number" class="control-label">Number</label>
+            		<div class="controls">
+            			<input type="text" id="number" value="{school:establishmentNumber}" />
+            		</div>
+                </div>
+                <div class="control-group">
+            		<label for="comment" class="control-label">Comments</label>
+            		<div class="controls">
+            			<textarea id="comment" class="auto-expand">{rdfs:comment}</textarea>
+            		</div>
+                </div>
+                <div class="control-group">
+            		<label for="phase" class="control-label">Phase</label>
+            		<div id="phase" class="controls">
+            			<label class="radio" rel="school:phaseOfEducation" resource="?phase">
+            				<input type="radio" name="phase" checked="checked" />
+            				<span rel="rdf:type" resource="http://education.data.gov.uk/def/school/PhaseOfEducation_TERM" property="rdfs:label" />
+            			</label>
+            		</div>
+                </div>
+                <div class="control-group">
+            		<label for="statutory" class="control-label">Statutory age range</label>
+            		<div id="statutory" class="controls">
+                        <div class="input-append">
+            			    <input type="number" class="input-mini" value="{school:statutoryLowAge}" size="2" datatype="xsd:integer" />
+                            <span class="add-on">years</span>
+                        </div>
+            			<div class="input-append">
+                		    <input type="number" class="input-mini" value="{school:statutoryHighAge}" size="2" datatype="xsd:integer" />
+                            <span class="add-on">years</span>
+                        </div>
+            		</div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="control-group">
+            		<label for="typeOfEstablishment" class="control-label">Type</label>
+        			<div id="typeOfEstablishment" class="controls">
+        				<label class="checkbox" rel="school:typeOfEstablishment" resource="?type">
+        					<input type="checkbox" name="phase" checked="checked" />
+        					<span rel="rdf:type" resource="http://education.data.gov.uk/def/school/TypeOfEstablishment_TERM" property="rdfs:label" />
+        				</label>
+        			</div>
+                </div>
+                <div class="control-group">
+            		<label for="status" class="control-label">Status</label>
+            		<div class="controls">
+            			<select id="status" rel="school:establishmentStatus">
+            				<option selected="selected" about="?status" rel="rdf:type" resource="http://education.data.gov.uk/def/school/EstablishmentStatus_TERM" property="rdfs:label" />
+            			</select>
+            		</div>
+                </div>
+            </fieldset>
+        </div>
+        <fieldset>
+            <div class="form-actions">
+        		<button id="save" type="submit" class="btn btn-primary">Save</button>
+        		<button id="cancel" type="button" onclick="location.replace('?view')" class="btn">Cancel</button>
+        		<button id="delete" type="button" onclick="calli.deleteResource(event)" class="btn btn-danger">Delete</button>
+            </div>
+        </fieldset>
+	</form>
+</body>
+</html>
