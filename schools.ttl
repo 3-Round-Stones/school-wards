@@ -6,4 +6,4 @@
 @prefix admingeo:<http://data.ordnancesurvey.co.uk/ontology/admingeo/>.
 
 # alias
-<./> calli:describedby "ward-list.rq?view".
+<./> calli:describedby "index.docbook?view".
